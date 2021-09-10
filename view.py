@@ -4,12 +4,19 @@ class View(Tk):
 
     def __init__(self):
         Tk.__init__(self)
-        #self.callback = callback
 
         self.title("Calculator")
-        #self.geometry('460x300')
+        self.minsize(500,600)
+
+        # Grid configure
+        for i in range(0,7):
+            Grid.rowconfigure(self, i, weight = 1)
+            Grid.columnconfigure(self, i, weight = 1)
+
         self.enter = Entry(master=self)
-        self.enter.grid(row = 0, column = 0, columnspan = 6, sticky = N+E+S+W)
+        self.enter.grid(row = 0, column = 0, columnspan = 4, sticky = N+E+S+W)
+
+
 
         # buttons
         b_10 = Button(self, text= "%")
@@ -63,6 +70,6 @@ class View(Tk):
         b_61.grid(row = 6, column = 1, sticky = N+E+S+W)
         b_62 = Button(self, text = ",")
         b_62.grid(row = 6, column = 2, sticky = N+E+S+W)
-        b_63 = Button(self, text = "/")
+        b_63 = Button(self, text = "=")
         b_63.grid(row = 6, column = 3, sticky = N+E+S+W)
 
